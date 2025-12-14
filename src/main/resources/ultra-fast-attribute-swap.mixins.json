@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.rithzer.ultrafastattributeswap.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "ultra-fast-attribute-swap.refmap.json",
+  "client": [
+    "MinecraftMixin",
+    "ClientPacketListenerMixin",
+    "LocalPlayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
