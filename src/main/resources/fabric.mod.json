@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "ultra-fast-attribute-swap",
+  "version": "${version}",
+  "name": "Ultra-Fast Attribute Swap",
+  "description": "Ultra-fast sword-to-mace attribute swapping during attacks for Minecraft 1.21.5",
+  "authors": [
+    "Rithzer"
+  ],
+  "contact": {
+    "homepage": "https://github.com/rithzer016-lang/ultra-fast-attribute-swap"
+  },
+  "license": "MIT",
+  "icon": "assets/ultra-fast-attribute-swap/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.rithzer.ultrafastattributeswap.UltraFastAttributeSwapClient"
+    ]
+  },
+  "mixins": [
+    "ultra-fast-attribute-swap.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21.5",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
