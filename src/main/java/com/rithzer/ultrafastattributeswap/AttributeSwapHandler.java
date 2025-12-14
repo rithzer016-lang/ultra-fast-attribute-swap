@@ -3,7 +3,6 @@ package com.rithzer.ultrafastattributeswap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Inventory;
@@ -81,6 +80,27 @@ public class AttributeSwapHandler {
             swapCooldown = SWAP_COOLDOWN_TICKS;
             
             UltraFastAttributeSwapClient.LOGGER.debug("Swapped back to original slot");
+        }
+    }
+    
+    // Public helper methods for mixins
+    
+    public static boolean isSwapInProgress() {
+        return swapInProgress;
+    }
+    
+    public static void cancelSwap() {
+        swapInProgress = false;
+        originalSlot = -1;
+        swapCooldown = 0;
+    }
+    
+    public static void forceCompleteSwap(LocalPlayer player) {
+        if (swapInProgress && originalSlot != -1) {
+            player.getInventory().selected = originalSlot;
+            originalSlot = -1;
+            swapInProgress = false;
+            swapCooldown = SWAP_COOLDOWN_TICKS;
         }
     }
     
